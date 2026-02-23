@@ -143,3 +143,32 @@ EOF
 git add README.md docs/RUNBOOK.md
 git commit -m "docs: add README and RUNBOOK"
 git push origin master
+
+
+
+
+
+-------
+# RUNBOOK — 운영/점검/트러블슈팅
+
+## 빌드 & 기동
+```bash
+./mvnw clean package -DskipTests
+docker compose up -d --build
+```
+
+## 상태 확인
+```bash
+docker compose ps
+docker logs -f newboard-app
+curl -I http://localhost:8081/swagger-ui/index.html
+curl http://localhost:8081/v3/api-docs | jq .
+```
+
+## Kafka/Redis 점검
+```bash
+docker exec -it newboard-kafka kafka-console-consumer --bootstrap-server localhost:9092   --topic article-topic --from-beginning --timeout-ms 5000
+docker exec -it newboard-redis redis-cli GET lastArticle
+```
+
+
