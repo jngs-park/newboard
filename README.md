@@ -1,4 +1,4 @@
-# NewBoard
+# Simple Board System
 
 Spring Boot + MySQL + Kafka + Redis + JWT 기반 게시판 API
 

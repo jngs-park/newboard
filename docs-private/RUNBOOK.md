@@ -71,7 +71,7 @@ curl -s -X POST http://<EC2_IP>:8081/api/auth/signup \
   -H "Content-Type: application/json" \
   -d '{"username":"smoke","password":"pass1234"}'
 
-TOKEN=$(curl -s -X POST http://<EC2_IP>:8081/api/auth/login \
+TOKEN=$(curl -s -X POST http://<EC2_IP>: /api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"username":"smoke","password":"pass1234"}' | jq -r .token)
 echo $TOKEN
